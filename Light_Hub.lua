@@ -53,8 +53,6 @@
         Select_Bring_Mob_Mode = "Bring Mob [Normal]";
         Normal_Fast_Attack = true;
         Extra_Fast_Attack = true;
-        Auto_Set_Spawn = true;
-        Select_Level_to_Redeem_All_Code = 1;
         Auto_Redeem_All_Code = false;
         Select_Weapon = nil;
         Skill_Z = true;
@@ -62,9 +60,7 @@
         Skill_C = true;
         Skill_V = true;
         Auto_Saber = false;
-        Auto_Saber_Hop = false;
         Auto_Pole = false;
-        Auto_Pole_Hop = false;
         Auto_Farm_Scrap_and_Leather = false;
         Auto_Farm_Angel_Wing = false;
         Auto_Factory_Farm = false;
@@ -77,9 +73,7 @@
         Auto_Farm_Mystic_Droplet = false;
         Auto_Evo_Race_V2 = false;
         Auto_Swan_Glasses = false;
-        Auto_Swan_Glasses_Hop = false;
         Auto_Dragon_Trident = false;
-        Auto_Dragon_Trident_Hop = false;
         Auto_Buy_Legendary_Sword = false;
         Auto_Buy_Enchancement = false;
         Auto_Soul_Reaper = false;
@@ -95,15 +89,11 @@
         Auto_Yama = false;
         Auto_Trade_Bone = false;
         Auto_Rainbow_Haki = false;
-        Auto_Rainbow_Haki_Hop = false;
         Auto_Musketeer_Hat = false;
         Auto_Holy_Torch = false;
         Auto_Canvander = false;
-        Auto_Canvander_Hop = false;
         Auto_Twin_Hook = false;
-        Auto_Twin_Hook_Hop = false;
         Auto_Serpent_Bow = false;
-        Auto_Serpent_Bow_Hop = false;
         Auto_Superhuman = false;
         Auto_Fully_Superhuman = false;
         Auto_Death_Step = false;
@@ -124,20 +114,8 @@
         Point = 1;
         No_clip = false;
         Auto_Teleport_Fruit = false;
-        Infinit_Energy = false;
-        Dodge_No_CoolDown = false;
         Infinit_Ability = false;
-        Infinit_SkyJump = false;
         Infinit_Soru = false;
-        Infinit_Range_Observation_Haki = false;
-        Select_Size_Fov = 200;
-        Show_Fov = false;
-        Select_Player = nil;
-        Spectate_Player = false;
-        Teleport_to_Player = false;
-        Auto_Kill_Player_Melee = false;
-        Auto_Kill_Player_Gun = false;
-        ESPPlayer = false;
         Select_Island = nil;
         Start_Tween_Island = false;
         Select_Dungeon = nil;
@@ -150,10 +128,9 @@
         Auto_Start_Law_Dungeon = false;
         Auto_Kill_Law = false;
         Select_Weapon_Law_Raid = nil;
-        Select_Devil_Fruit = nil;
-        Auto_Buy_Devil_Fruit = false;
+        Select_Blox_Fruit = nil;
+        Auto_Buy_Fruit = false;
         Auto_Random_Fruit = false;
-        Auto_Bring_Fruit = false;
         Auto_Store_Fruit = false;
     }
     
@@ -195,16 +172,7 @@
             end
         end
     end
-    
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-        if v.ToolTip == "Melee" then
-            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                _G.Select_Weapon_Kill_Player_Melee = tostring(v.Name)
-            end
-        end
-    end
-    
-    if _G.Settings.Select_Weapon_Law_Raid == nil then
+     if _G.Settings.Select_Weapon_Law_Raid == nil then
         for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
             if v.ToolTip == "Melee" then
                 if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
@@ -1377,23 +1345,6 @@ end)
                     TPReturner()
                     if foundAnything ~= "" then
                         TPReturner()
-                    end
-                end)
-            end
-        end
-        Teleport()
-    end
-    
-    function SkyJumpNoCoolDown()
-        if _G.Infinit_SkyJump then
-            for i,v in next, getgc() do
-                if game.Players.LocalPlayer.Character.Geppo then
-                    if typeof(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character.Geppo then
-                        for i2,v2 in next, getupvalues(v) do
-                            if tostring(v2) == "0" then
-                                repeat wait(.1)
-                                    setupvalue(v,i2,0)
-                                until not _G.Infinit_SkyJump
                             end
                         end
                     end
@@ -1436,25 +1387,6 @@ end)
         else
             if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
                 game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
-            end
-        end
-    end
-    
-    _G.Dodge_No_CoolDown = false
-    function DodgeNoCoolDown()
-        if _G.Dodge_No_CoolDown then
-            for i,v in next, getgc() do
-                if game.Players.LocalPlayer.Character.Dodge then
-                    if typeof(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character.Dodge then
-                        for i2,v2 in next, getupvalues(v) do
-                            if tostring(v2) == "0.4" then
-                                repeat wait(.1)
-                                    setupvalue(v,i2,0)
-                                until not _G.Dodge_No_CoolDown
-                            end
-                        end
-                    end
-                end
             end
         end
     end
